@@ -1,6 +1,6 @@
 {
-  "name": "hello",
-  "version": "0.1.0",
+  "name": "Tunit",
+  "version": "0.1.0-beta.1",
   "private": true,
   "dependencies": {
     "@chakra-ui/react": "^2.5.3",

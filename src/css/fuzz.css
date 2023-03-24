@@ -1,0 +1,222 @@
+:root {
+    --black: rgba(43, 45, 66, 1.0);
+    --oled: rgba(0, 0, 0, 1.0);
+    --white: rgba(255, 255, 255, 1.0);
+    --red: rgba(230, 66, 73, 1.0);
+    --red2: rgba(207, 48, 57, 1.0);
+    }
+  
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+  }
+body {
+    font: 16px / 24px "Rubik", sans-serif;
+    color: var(--black);
+    background: var(--white);
+    margin: 50px 0;
+  }
+
+  h2 {
+    font-size: 32px;
+    margin-bottom: 1em;
+  }
+
+.contain-img {
+  /* resize image to dimension below*/
+  width: 100%;
+  height: 100%;  
+
+}
+a:link {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:visited {
+  text-decoration: none;
+  color: inherit;
+}
+
+.two-column {
+    display: flex;
+    flex-direction: row;
+}
+
+.circle {
+    border-radius: 50%;
+    /* make size of image same height as <h1> */
+    height: 2.5em;
+    /* make image same height as <h1> */
+    width: 2.5em;
+}
+
+.squircle {
+    border-radius: 5%;
+}
+
+.top-right {
+    /* top and right margin to make image centered with h1 */
+    margin-left: auto;
+    margin-top: -0.5em;
+    margin-right: 0.25em;    
+}
+.button-actions {
+    /* top and right margin to make image centered with h1 */
+    margin-left:10px;    
+}
+
+  
+.container {
+    max-width: 1400px;
+    padding: 0 15px;
+    margin: 0 auto;
+  }
+ 
+  
+  .cards {
+    display: flex;
+    padding: 25px 0px;
+    list-style: none;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+  }
+
+  .card:first-child {
+    margin-left: 25px;
+  }
+  .card:last-child {
+    margin-right: 25px;
+  }
+
+  .sub-sort {
+    margin-top: 5px;
+    margin-right: 10px;
+    color: rgb(151, 151, 151);
+  }
+  .active-ss {
+    color: var(--black);
+  }
+  
+  .card {
+    
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 100%;
+    padding: 20px;
+    padding-left: 50px;
+    background: var(--white);
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 15%);
+    scroll-snap-align: none;
+    transition: all 0.2s;
+  }
+  
+  .card:not(:last-child) {
+    margin-right: 10px;
+  }
+  
+
+  .card:hover {
+    color: var(--white);
+    background: var(--red);
+  }
+  
+  .card .card-title {
+    font-size: 20px;
+  }
+  
+  .card .card-content {
+    margin: 20px 0;
+    max-width: 85%;
+  }
+  
+  .card .card-item-wrapper {
+    margin-top: auto;
+  }
+  
+  .card .card-link {
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    background: var(--red);
+    padding: 6px 12px;
+    border-radius: 25%;
+    transition: background 0.2s;
+  }
+
+  .card-icon {
+    max-width: 0.75rem;
+    max-height: 1rem;
+    margin-top: 5px;
+    padding: auto;
+  }
+  
+  .card:hover .card-link {
+    background: var(--red2);
+  }
+  
+  .cards::-webkit-scrollbar {
+    display: none;
+  }
+
+  @media (min-width: 500px) {
+    .card {
+      flex-basis: calc(50% - 10px);
+    }
+  
+    .card:not(:last-child) {
+      margin-right: 20px;
+    }
+  }
+  
+  @media (min-width: 700px) {
+    .card {
+      flex-basis: calc(calc(100% / 3) - 20px);
+    }
+  
+    .card:not(:last-child) {
+      margin-right: 30px;
+    }
+  }
+  
+  @media (min-width: 1100px) {
+    .card {
+      flex-basis: calc(25% - 30px);
+    }
+  
+    .card:not(:last-child) {
+      margin-right: 40px;
+    }
+  
+  }
+
+  @media (prefers-color-scheme: dark) {
+    body {
+      background: var(--oled);
+      color: var(--white);
+    }
+  
+    .card {
+      background: var(--oled);
+    }
+  
+    .card:hover {
+      background: var(--red2);
+    }
+  
+    .card:hover .card-link {
+      background: var(--black);
+    }
+    .active-ss {
+      color: var(--white);
+    }
+    .card {
+      box-shadow: 0 5px 15px var(--red2);
+    }
+  
+  }
+  

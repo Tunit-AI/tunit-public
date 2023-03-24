@@ -1,0 +1,19 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+.circle {
+    border-radius:  50%;
+}
+
+.resize {
+    height: 3rem;
+    width: 3rem;
+}
+
+headerText {
+    font-weight: bold;
+    font-size: xx-large;
+}

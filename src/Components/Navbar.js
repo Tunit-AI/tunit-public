@@ -1,43 +1,44 @@
 import '../css/Navbar.css';
-import React, {Component} from 'react';
-import placeholder from '.././images/person.crop.circle.svg'
-import add from '.././images/plus.app.svg'
-import { Stack, HStack } from '@chakra-ui/react'
+import React, { useState } from 'react';
+import placeholder from '.././images/person.crop.circle.svg';
+import add from '.././images/plus.app.svg';
 import { NavLink, useLocation } from 'react-router-dom';
-// import { Stack, HStack, VStack } from '@chakra-ui/react'
+import { MenuData } from './MenuData';
 
-function Navbar(props) {
+const NavBar = () => {
+  const [clicked, setClicked] = useState(false);
 
-    const location = useLocation();
-    return (
-        <HStack className='container'>
-            <nav>
-                <NavLink to="/">
-                    {location.pathname !== '/' && (
-                        <h2>← Home</h2>
-                    
-                    )}
-                    <h2>
-                        {props.header}
-                    </h2>
+  const handleClick = () => {
+    setClicked(!clicked);
+  };
+  const location = useLocation();
 
-                </NavLink>
-            </nav>           
-            <nav>
-                {location.pathname !== '/addSong' && (
-                <NavLink to='/addSong'>
-                    <img alt='' className='resize' src={add} />
-                </NavLink>
-                )}
-                {location.pathname !== '/profile' && (
-                <NavLink to='/profile'>
-                    <img alt='' className='resize' src={placeholder} />
-                </NavLink>
-                )}
-            </nav>        
-        </HStack>
-    )
-    
-}
+  return (
+    <nav className="navbar">
+      <h1 className="title">
+        <i className="fa-solid fa-circle-play"></i> Tunit
+      </h1>
+      <div className="menu-icon" onClick={handleClick}>
+        <i className={clicked ? 'fas fa-times' : 'fas fa-bars'}></i>
+      </div>
+      <ul className={clicked ? 'nav__menu active' : 'nav__menu'}>
+        {MenuData.map((item, index) => {
+            if (location.pathname === item.path) {
+                return null;
+            }
+          return (
+            <li key={index}>
+              <a href={item.path} className={item.cName}>
+                <i className={item.icon}></i>
+                {item.title}
+              </a>
+            </li>
+            
+          );
+        })}
+      </ul>
+    </nav>
+  );
+};
 
-export default Navbar;
+export default NavBar;

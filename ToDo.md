@@ -8,9 +8,12 @@ Todo.md
 - [ ] add rating button next to play/add button
 - [ ] add slideover settings/account page
 - [ ] create music player view
-    - [ ]  requires Dev acc (on the way!)
+    - [X]  requires Dev acc (on the way!)
 - [ ] sign in page
     - [ ] implement db
+- [ ] update MusicView, make it have header props, and pass them into fxn:
+    - [ ] function MusicView(props)
+        <h1 or h2> props.header </h1 or h2>
 
 ### Lower Priority
 - [ ] add different view size settings for mobile site

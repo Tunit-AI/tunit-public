@@ -1,8 +1,6 @@
 import React, { useEffect, useState }  from 'react';
 import { Stack, HStack, VStack } from '@chakra-ui/react';
 import '../css/Navbar.css'
-import '../css/fuzz.css'
-import '../css/Profile.css'
 import { NavLink } from 'react-router-dom';
 // import useFetch from "react-fetch-hook";
 import axios from "axios";

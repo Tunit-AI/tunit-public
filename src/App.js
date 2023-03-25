@@ -4,8 +4,10 @@
 import { Route, Routes } from 'react-router-dom';
 import Home from './Pages/Home';
 import Profile from './Pages/Profile';
-import Login from './Pages/Login';
 import AddSong from './Pages/AddSong';
+import Welcome from './Pages/Welcome';
+import Signup__Signin from './Components/Signup';
+
 // import Welcome from './Pages/Welcome'
 
 // function App() {
@@ -37,10 +39,10 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/profile" element={<Profile />} />
-        <Route path="/login" element={<Login />} />
         <Route path="/addSong" element={<AddSong />} />
-        {/* <Route path="/welcome" element={<Welcome />} /> */}
-
+        <Route path="/welcome" element={<Welcome />} />
+        <Route path="/signup" element={<Signup__Signin />} />
+        <Route path="*" element={<h1>404 Not Found</h1>} />
 
       </Routes>
     

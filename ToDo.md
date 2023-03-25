@@ -14,6 +14,7 @@ Todo.md
 - [ ] update MusicView, make it have header props, and pass them into fxn:
     - [ ] function MusicView(props)
         <h1 or h2> props.header </h1 or h2>
+- [ ] need to update routing and fix responsive media queries on welcome page / app.js
 
 ### Lower Priority
 - [ ] add different view size settings for mobile site

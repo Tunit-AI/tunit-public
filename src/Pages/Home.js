@@ -7,7 +7,7 @@ import MusicView from '../Components/MusicView';
 function Home() {
   return (
     <div className="App">
-      <Navbar header="Today's Recommendations" />
+      <Navbar />
       <MusicView />
 
     </div>

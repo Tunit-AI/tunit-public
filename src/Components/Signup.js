@@ -3,6 +3,7 @@ import axios from 'axios';
 import { NavLink } from 'react-router-dom';
 
 const Signup__Signin = () => {
+  
   const [isSignIn, setIsSignIn] = useState(false);
   const [formData, setFormData] = useState({
     email: '',
@@ -25,7 +26,7 @@ const Signup__Signin = () => {
     if (isSignIn) {
       // Handle login logic here
       try {
-        const response = await axios.post('/api/login', { email, password });
+        const response = await axios.post('http://192.168.1.127:8090/api/accounts', { email, password });
         console.log('User logged in successfully:', response.data);
       } catch (error) {
         console.error('Failed to log in:', error);
@@ -38,7 +39,7 @@ const Signup__Signin = () => {
       }
   
       try {
-        const response = await axios.post('/api/signup', { email, password });
+        const response = await axios.post('http://192.168.1.127:8090/api/accounts', { email, password });
         console.log('User signed up successfully:', response.data);
       } catch (error) {
         console.error('Failed to sign up:', error);
@@ -47,6 +48,7 @@ const Signup__Signin = () => {
  };
 
   return (
+    <>
     <section className='welcome--bg'>
     <div className='form-box'>
         <div className='form-value'>
@@ -99,6 +101,7 @@ const Signup__Signin = () => {
         </div>
       </div>
     </section>
+    </>
   );
 };
 

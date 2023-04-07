@@ -4,6 +4,7 @@
     background: -webkit-linear-gradient(to right, #1fa2ff, #12d8fa, #a6ffcb); /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #1fa2ff, #12d8fa, #a6ffcb); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     margin-top: -35px;
+
     background-position: center;
     background-size: cover;
 
@@ -21,8 +22,9 @@
     font-size: 3rem;
     color: white;
     font-weight: 700;
-    text-align: center;
-    top: 300px;
+    text-align: left;
+    left: 25vh;
+    top: 50vh;
     position: relative;
     z-index: 100;
 }
@@ -33,11 +35,10 @@
 
 section{
     display: flex;
-    justify-content: center;
+    justify-content: right;
     align-items: center;
     min-height: 100vh;
     width: 100%;
-    
     background-position: center;
     background-size: cover;
 }
@@ -50,6 +51,7 @@ section{
     border-radius: 20px;
     backdrop-filter: blur(15px);
     display: flex;
+    right: 45vh;
     justify-content: center;
     align-items: center;
 

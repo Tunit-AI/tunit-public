@@ -2,16 +2,14 @@
 import Navbar from '../Components/Navbar';
 import MusicView from '../Components/MusicView';
 import ChartView from '../Components/ChartView';
-import Welcome from './Welcome';
 
 
 function Home() {
   return (
     <div className="App">
-      {/* <Navbar />
+      <Navbar />
       <MusicView />
-      <ChartView /> */}
-      <Welcome />
+      <ChartView />
     </div>
   );
 }

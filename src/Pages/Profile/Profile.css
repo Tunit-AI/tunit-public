@@ -1,0 +1,41 @@
+* {
+    margin-left: 20px;
+}
+
+
+h2 {
+    color: red;
+}
+
+a {
+    text-decoration: none;
+}
+
+.button-green {
+    border-radius: 10px;
+    background-color: green;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
+    color: white;
+    width: auto;
+    margin-bottom: 10px;
+    justify-content: space-around;
+
+}
+.button-red {
+    border-radius: 10px;
+    background-color: red;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
+    color: white;
+    width: auto;
+    margin-bottom: 10px;
+    justify-content: space-around;
+
+}
+
+
+.button-green:hover {
+    background-color: black;
+    backdrop-filter: blur(20px);
+    border-radius: 4px;
+    transition: all 0.2s ease-in-out
+}

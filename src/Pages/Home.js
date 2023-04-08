@@ -1,14 +1,16 @@
 // import logo from './logo.svg';
 import Navbar from '../Components/Navbar';
-import MusicView from '../Components/MusicView';
+import SpotifyMusicView from '../Components/Spotify/SpotifyMusicView';
 import ChartView from '../Components/ChartView';
 
 
 function Home() {
+  const hasAccessToken = !!localStorage.getItem("access_token");
+
   return (
     <div className="App">
       <Navbar />
-      <MusicView />
+      {/* {hasAccessToken && <SpotifyMusicView />} */}
       <ChartView />
     </div>
   );

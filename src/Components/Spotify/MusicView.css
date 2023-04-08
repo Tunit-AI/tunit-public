@@ -50,12 +50,6 @@
 .card:not(:last-child) {
     margin-right: 10px;
 }
-.card-image {
-    width: 60%;
-    height: 60%;
-    object-fit: cover;
-    border-radius: 15px;
-}
 
 .card-icon {
     max-width: 0.75rem;

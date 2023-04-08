@@ -3,7 +3,17 @@ import { Stack, HStack, VStack } from '@chakra-ui/react';
 import { NavLink } from 'react-router-dom';
 // import useFetch from "react-fetch-hook";
 import axios from "axios";
+import SpotifyAuth from '../../Components/Spotify/SpotifyAuth';
+import SpotifyGetPlaylists from '../../Components/Spotify/SpotifyGetPlaylists';
+import './Profile.css';
 
+//this function only for testing purposes; picks random user to show in page
+function getRandomInt() {
+    const min = 0;
+    const max = 9;
+    const randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+    return randomNumber;
+}
 function Profile() {
 
     const [user, setUser] = useState([]);
@@ -36,13 +46,13 @@ function Profile() {
 
 
 
-// will add ability to add photos if time allows
-const firstName ="John"
-const lastName ="Doe"
-const emailAddr ="johndoe@email.com"
-const authFormat = "Apple Music"
-// function Profile() {
-
+    // will add ability to add photos if time allows
+    const firstName ="John"
+    const lastName ="Doe"
+    const emailAddr ="johndoe@email.com"
+    const authFormat = "Spotify"
+    // function Profile() {
+    const randomInt = getRandomInt();
     return (
         <>
             {/* <pre>{JSON.stringify(data, null, 2)}</pre> */}
@@ -53,33 +63,38 @@ const authFormat = "Apple Music"
                     </h2>
                 </NavLink>
             </nav>
-            <VStack>
+            <div>
                 <p></p>
                 <h3>Name</h3>
                 {user && user.length > 0 && (
-                    <p>{user[0].name}</p>
+                    <p>{user[randomInt].name}</p>
                 )}
                 <br></br>
                 <h3>Email</h3>
                 {user && user.length > 0 && (
-                    <p>{user[0].email}</p>
+                    <p>{user[randomInt].email}</p>
                 )}
                 <br></br>
-                <h3>Privacy</h3>
-                <p>
+                {/* <h3>Privacy</h3> */}
+                <br></br>
+                <br></br>
+                {/* <h4>Sign in with Spotify</h4> */}
+                <SpotifyAuth />
+                <SpotifyGetPlaylists />
+                {/* <p>
                     Signed in with {authFormat}
-                </p>
+                </p> */}
                 <br>
                 </br>
-                <button>
+                {/* <button>
                     Deauth {authFormat}
-                </button>
+                </button> */}
                 <br>
                 </br>
-                <button>
+                {/* <button>
                     Delete Account
-                </button>
-            </VStack>
+                </button> */}
+            </div>
         </>
     )
 }

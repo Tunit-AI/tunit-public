@@ -1,6 +1,6 @@
 import React from 'react';
-import '../css/Welcome.css';
-import Signup__Signin from '../Components/Signup';
+import './Welcome.css';
+import Signup__Signin from '../../Components/Signup';
 function Welcome() {
     return (
         <>

@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Stack, HStack, VStack } from '@chakra-ui/react';
 import axios from 'axios';
 // import css styles for album (implement from fuzz.css classes)
 import './MusicView.css';

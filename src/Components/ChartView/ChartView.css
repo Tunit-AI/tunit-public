@@ -9,6 +9,7 @@
 
 .titleBB {
     padding-left: 30px;
+    margin-top: 70px;
 }
 .container {
     max-width: 1400px;
@@ -19,7 +20,7 @@
 
 .cards {
     display: flex;
-    padding: 25px 0px;
+    padding: 5px 0px;
     list-style: none;
     overflow-x: scroll;
     scroll-snap-type: x mandatory;
@@ -45,6 +46,7 @@
     scroll-snap-align: none;
     transition: all 0.2s;
     position: relative;
+    margin-bottom: 15px
 }
 .card:not(:last-child) {
     margin-right: 10px;
@@ -55,7 +57,7 @@
     margin: auto;
     margin-left: 10px;
     border-radius: 15px;
-    position: sticky;
+    position: relative;
 }
 .card-item, .card-item-subtitle {
   margin-left: 10px;
@@ -90,6 +92,8 @@ i:hover {
 @media (min-width: 500px) {
     .card {
       flex-basis: calc(50% - 10px);
+      /* flex-direction: row; */
+
     }
   
     .card:not(:last-child) {
@@ -110,6 +114,7 @@ i:hover {
   @media (min-width: 1100px) {
     .card {
       flex-basis: calc(25% - 30px);
+
     }
   
     .card:not(:last-child) {

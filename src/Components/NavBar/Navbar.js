@@ -1,6 +1,6 @@
 import './Navbar.css';
 import React, { useState } from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { MenuData } from './MenuData';
 
 const NavBar = () => {
@@ -13,8 +13,10 @@ const NavBar = () => {
 
   return (
     <nav className="navbar">
-      <h1 className="title">
+      <h1 className="nav-title">
+        <Link to="/">
         <i className="fa-solid fa-circle-play"></i> Tunit
+        </Link>
       </h1>
       <div className="menu-icon" onClick={handleClick}>
         <i className={clicked ? 'fas fa-times' : 'fas fa-bars'}></i>

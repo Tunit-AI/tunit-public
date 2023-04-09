@@ -4,7 +4,7 @@
     align-items: center;
     font-size: 1.2rem;
     margin: auto;
-    padding: 0 30px;
+    padding: 0 10px;
     /* background-color: #c50000; */
     color: black;
     /* box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25); */
@@ -17,12 +17,17 @@
     /* left: 50%;
     transform: translateX(-50%); */
 }
-.title {
+.nav-title {
     color: #000;
     justify-self: start;
     cursor: pointer;
     white-space: nowrap;
 
+}
+
+.nav-title a {
+    text-decoration: none;
+    color: #000;
 }
 
 .fa-code {

@@ -45,6 +45,9 @@ a {
 .button-red {
     background-color: red;
 }
+.button-black {
+    background-color: black;
+}
 
 
 .button-green:hover {
@@ -84,6 +87,18 @@ a {
 }
 
 .profile-margin button:hover {
+    opacity: 1;
+}
+
+.profile-dev {
+    margin-top: 100px;
+}
+
+.dev-actions {
+    opacity: 0;
+    box-shadow: none
+}
+.dev-actions:hover {
     opacity: 1;
 }
 

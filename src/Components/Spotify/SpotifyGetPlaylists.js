@@ -30,7 +30,7 @@ const SpotifyGetPlaylists = () => {
 
     return(
         <>
-            <button className="button-red" onClick={handleGetPlaylists}>DEV-Show Authorization Load Playlists</button>
+            <button className="button-black" onClick={handleGetPlaylists}>Spotify Authorization Load Check</button>
             {data?.items ? data.items.map((item) => (
                 <>
                     <p>{item.name}</p>

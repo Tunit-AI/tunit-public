@@ -1,7 +1,7 @@
 import React from 'react';
 // import css styles for album (implement from fuzz.css classes)
 import { BillboardData } from './BillboardData';
-import '../css/ChartView.css';
+import './ChartView.css';
 
 const ChartView = () => {
     return (

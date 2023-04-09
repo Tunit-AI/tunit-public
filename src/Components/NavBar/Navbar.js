@@ -1,7 +1,5 @@
-import '../css/Navbar.css';
+import './Navbar.css';
 import React, { useState } from 'react';
-import placeholder from '.././images/person.crop.circle.svg';
-import add from '.././images/plus.app.svg';
 import { NavLink, useLocation } from 'react-router-dom';
 import { MenuData } from './MenuData';
 

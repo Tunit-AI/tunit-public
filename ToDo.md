@@ -5,15 +5,15 @@ Todo.md
 
 ### High Priority
 - [X] add navbar class
-- [ ] add rating button next to play/add button
+- [X] add rating button next to play/add button
 - [ ] add slideover settings/account page
 - [ ] create music player view
     - [X]  requires Dev acc (on the way!)
 - [ ] sign in page
     - [ ] implement db
-- [ ] update MusicView, make it have header props, and pass them into fxn:
+<!-- - [ ] update MusicView, make it have header props, and pass them into fxn:
     - [ ] function MusicView(props)
-        <h1 or h2> props.header </h1 or h2>
+        <h1 or h2> props.header </h1 or h2> -->
 - [ ] need to update routing and fix responsive media queries on welcome page / app.js
 
 ### Lower Priority

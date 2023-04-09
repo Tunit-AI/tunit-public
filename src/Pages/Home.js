@@ -1,7 +1,7 @@
 // import logo from './logo.svg';
-import Navbar from '../Components/Navbar';
+import Navbar from '../Components/NavBar/Navbar';
 import SpotifyMusicView from '../Components/Spotify/SpotifyMusicView';
-import ChartView from '../Components/ChartView';
+import ChartView from '../Components/ChartView/ChartView';
 
 
 function Home() {

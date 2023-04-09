@@ -1,5 +1,5 @@
 import { Stack, HStack, VStack } from '@chakra-ui/react';
-import Navbar from '../Components/Navbar';
+import Navbar from '../Components/NavBar/Navbar';
 import '../Pages/Profile/Profile.css';
 
 function AddSong() {

@@ -26,7 +26,7 @@ const Signup__Signin = () => {
     if (isSignIn) {
       // Handle login logic here
       try {
-        const response = await axios.post('http://192.168.1.127:8090/api/accounts', { email, password });
+        const response = await axios.post('https://tunitapi.azurewebsites.net/api/accounts', { email, password });
         console.log('User logged in successfully:', response.data);
       } catch (error) {
         console.error('Failed to log in:', error);
@@ -39,7 +39,7 @@ const Signup__Signin = () => {
       }
   
       try {
-        const response = await axios.post('http://192.168.1.127:8090/api/accounts', { email, password });
+        const response = await axios.post('https://tunitapi.azurewebsites.net/api/accounts', { email, password });
         console.log('User signed up successfully:', response.data);
       } catch (error) {
         console.error('Failed to sign up:', error);

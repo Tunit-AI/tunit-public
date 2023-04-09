@@ -1,0 +1,32 @@
+.addSong-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 70vh;
+    width: 100vw;
+
+}
+
+.addSong-container input {
+    border-radius: 7px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
+    border: none;
+    padding: 10px 20px;
+    margin-bottom: 40px;
+    width: 300px;
+    font-size: large;
+}
+.addSong-container button {
+    opacity: 0.9;
+    border: none;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    color: white;
+    width: auto;
+    margin-bottom: 10px;
+    font-size: large;
+    padding: 10px 20px;
+    margin-bottom: 30px;
+    background-color: #4285f4;
+}

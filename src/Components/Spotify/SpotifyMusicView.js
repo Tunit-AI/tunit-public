@@ -36,6 +36,12 @@ const SpotifyMusicView = () => {
     console.log(typeof data);
     // const playlistData = JSON.parse(localStorage.getItem('playlistData'));
 
+    // delete after button features implemented
+    const handleButtons = (e) => {
+        e.preventDefault();
+        alert('This feature is not available yet');
+    }
+
     return (
         <>
             <div className="container">

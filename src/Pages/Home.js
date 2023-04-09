@@ -9,8 +9,14 @@ function Home() {
 
   return (
     <div className="App">
+
+      {/* Website Navbar */}
       <Navbar />
-      {/* {hasAccessToken && <SpotifyMusicView />} */}
+
+      {/* Recommendation View */}
+
+
+      {/* Billboard View */}
       <ChartView />
     </div>
   );

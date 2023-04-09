@@ -54,7 +54,7 @@ function Profile() {
     // function Profile() {
     const randomInt = getRandomInt();
     return (
-        <>
+        <div className='profile-margin'>
             {/* <pre>{JSON.stringify(data, null, 2)}</pre> */}
             <nav>
                 <NavLink to="/">
@@ -95,7 +95,7 @@ function Profile() {
                     Delete Account
                 </button> */}
             </div>
-        </>
+        </div>
     )
 }
 

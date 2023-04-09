@@ -1,4 +1,6 @@
-* {
+
+
+.profile-margin {
     margin-left: 20px;
 }
 
@@ -38,4 +40,14 @@ a {
     backdrop-filter: blur(20px);
     border-radius: 4px;
     transition: all 0.2s ease-in-out
+}
+
+.button-submit {
+    width: 100px;
+
+}
+
+.input-addSong {
+    border-radius: 7px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
 }

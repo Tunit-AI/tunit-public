@@ -20,13 +20,13 @@ const ChartView = () => {
                                         <img className='card-image' src={item.image}/>
                                     </div>
                                     <div className='card-rate-functions'>
-                                        <i className="fa-solid fa-circle-play">
+                                        <i className="fa-solid fa-circle-play fa-2xl quick-actions">
                                             {/* {Play} */}
                                         </i> 
-                                        <i className="fa-solid fa-circle-plus">
+                                        <i className="fa-solid fa-circle-plus fa-2xl quick-actions">
                                             {/* {Add} */}
                                         </i> 
-                                        <i className="fa-solid fa-heart">
+                                        <i className="fa-solid fa-heart fa-2xl quick-actions">
                                             {/* {Add} */}
                                         </i> 
 

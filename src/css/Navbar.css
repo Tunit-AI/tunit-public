@@ -71,6 +71,7 @@
 @media screen and (max-width: 850px) {
     .navbar {
         z-index: 99;
+        /* right: 30px; */
     }
 
     .nav__menu {
@@ -120,3 +121,25 @@
         display: block;
     }
 }
+
+@media (prefers-color-scheme: dark) {
+    .title {
+        color: #fff;
+    }
+  
+    .nav-links {
+        color: #fff;
+    }  
+
+    .nav-links:hover {
+        background-color: rgb(255, 255, 255);
+        color: #000;
+    }
+
+    .fa-bars, 
+    .fa-times {
+        color: #fff;
+
+    }
+
+  }

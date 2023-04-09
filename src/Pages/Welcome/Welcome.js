@@ -5,7 +5,7 @@ function Welcome() {
     return (
         <>
             <div className='welcome--bg'>
-                <h1 className='welcome-title'>Welcome to Tunit</h1>
+                {/* <h1 className='welcome-title'>Welcome to Tunit</h1> */}
                 <Signup__Signin />
             </div>
         </>

@@ -128,9 +128,14 @@
 }
 
 @media (prefers-color-scheme: dark) {
-    .title {
+    .nav-title {
         color: #fff;
     }
+    .nav-title a{
+        color: #fff;
+    }
+
+
   
     .nav-links {
         color: #fff;

@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { auth } from "../../Firebase/Config";
 import { Axios } from 'axios';
 import * as API from './Api/apiReference';
+import AddSongChartView from '../../Components/AddSongChartView/AddSongChartView';
 
 function AddSong() {
 
@@ -18,6 +19,7 @@ function AddSong() {
           const response = await fetch(`${API.TUNITAPI}/${input}`);
           const data = await response.json();
           console.log(data);
+          localStorage.setItem("recItem", JSON.stringify(data));
           // Use the data to set the song ID state or do any other operations
         } catch (error) {
           console.error(error);
@@ -32,6 +34,7 @@ function AddSong() {
       if (!user) return navigate("/");
     }, [user, loading]);
   
+    
     return (
         <>
             <Navbar />
@@ -47,6 +50,7 @@ function AddSong() {
                 <button className='button-submit' type='submit' onClick={handleSubmit}>
                     Submit
                 </button>
+                {/* <AddSongChartView/> */}
             </div>
         </>
     )

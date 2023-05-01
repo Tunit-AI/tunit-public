@@ -14,7 +14,7 @@ function AddSong() {
       e.preventDefault();
       try {
         // Send the song ID to the API and store the result in local storage
-        const response = await fetch(`${API.TUNITAPI}/${songLink}`);    
+        const response = await fetch(`${API.TUNITAPI}/${songLink}`, {mode: 'cors'});    
         const data = await response.json();
         localStorage.setItem('recData', JSON.stringify(data));
         alert('Song data stored in local storage.');

@@ -8,14 +8,21 @@ import {
     createUserWithEmailAndPassword,
     sendPasswordResetEmail,
     signOut,
+    onAuthStateChanged,
  } from "firebase/auth";
 import {
-    getFirestore,
-    query,
-    getDocs,
-    collection,
-    where,
-    addDoc,
+  getFirestore,
+  query,
+  getDocs,
+  collection,
+  where,
+  addDoc,
+  doc,
+  setDoc,
+  updateDoc,
+  deleteDoc,
+  getDoc,
+
 } from "firebase/firestore";
     
 
@@ -99,15 +106,56 @@ const logout = () => {
     signOut(auth);
   };
   
+async function updateUserAndAddToCollection(user, accessToken, refreshToken) {
+  // Check if the input values are valid
+  if (!user || !user.uid || !accessToken || !refreshToken) {
+    console.log('Invalid input values.');
+    return;
+  }
+  // Firestore references
+  // const userDocRef = doc(db, `users/${documentId}`);
+
+  const usersCollection = collection(db, 'users');
+  const q = query(usersCollection, where("uid", "==", user.uid));
+  const querySnapshot = await getDocs(q);
+
+  if (!querySnapshot.empty) {
+    // Get the document ID of the first document in the query result
+    const userDocId = querySnapshot.docs[0].id;
+
+    // Get a reference to the user document
+    const userDocRef = doc(db, `users/${userDocId}`);
+
+    // Update user data
+    await setDoc(userDocRef, {
+      accessToken: accessToken,
+      refreshToken: refreshToken
+    }, { merge: true });
+  } else {
+    console.log('UUAATC: User not found.');
+  }
+}
   
   
 export {
-    auth,
-    db,
-    signInWithGoogle,
-    logInWithEmailAndPassword,
-    registerWithEmailAndPassword,
-    sendPasswordReset,
-    logout,
+  auth,
+  db,
+  signInWithGoogle,
+  logInWithEmailAndPassword,
+  registerWithEmailAndPassword,
+  sendPasswordReset,
+  logout,
+  query,
+  getDocs,
+  collection,
+  where,
+  addDoc,
+  doc,
+  setDoc,
+  updateDoc,
+  deleteDoc,
+  getDoc,
+  onAuthStateChanged,
+  updateUserAndAddToCollection,
 };
   

@@ -57,6 +57,7 @@ const signInWithGoogle = async () => {
         email: user.email,
       });
     }
+    return res;
   } catch (err) {
     console.error(err);
     alert(err.message);
@@ -66,7 +67,8 @@ const signInWithGoogle = async () => {
 // Email Sign In
 const logInWithEmailAndPassword = async (email, password) => {
     try {
-      await signInWithEmailAndPassword(auth, email, password);
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      return userCredential;
     } catch (err) {
       console.error(err);
       alert(err.message);
@@ -135,7 +137,55 @@ async function updateUserAndAddToCollection(user, accessToken, refreshToken) {
     console.log('UUAATC: User not found.');
   }
 }
-  
+
+// This function refreshes the access token using the user's stored refresh token
+async function refreshAccessTokenAndSave(user, refreshToken) {
+  const clientId = "db991fb76b5e4a74a8dbdaa111fc0520";
+  const url = "https://accounts.spotify.com/api/token";
+  const params = new URLSearchParams();
+
+  params.append("grant_type", "refresh_token");
+  params.append("refresh_token", refreshToken);
+  params.append("client_id", clientId);
+
+  const response = await fetch(url, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    body: params.toString(),
+  });
+
+  if (response.ok) {
+    const data = await response.json();
+    const newAccessToken = data.access_token;
+
+    const usersCollection = collection(db, 'users');
+    const q = query(usersCollection, where("uid", "==", user.uid));
+    const querySnapshot = await getDocs(q);
+    // Check if a user document is found
+    if (!querySnapshot.empty) {
+      // Get the document ID of the first document in the query result
+      const userDocId = querySnapshot.docs[0].id;
+
+      // Get a reference to the user document
+      const userDocRef = doc(db, `users/${userDocId}`);
+
+      // Update user data with the new access token
+      await setDoc(userDocRef, {
+        accessToken: newAccessToken
+      }, { merge: true });
+
+      console.log('Access token updated in the Firestore.');
+    } else {
+      console.log('User not found.');
+    }
+  } else {
+    throw new Error("Failed to refresh access token");
+  }
+}
+
+
   
 export {
   auth,
@@ -157,5 +207,6 @@ export {
   getDoc,
   onAuthStateChanged,
   updateUserAndAddToCollection,
+  refreshAccessTokenAndSave,
 };
   

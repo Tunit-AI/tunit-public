@@ -6,7 +6,7 @@ import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../../Firebase/Config";
-
+import { useFetchAccessToken } from "../../Hooks/useFetchAccessToken";
 
 function Home() {
   const hasAccessToken = !!localStorage.getItem("access_token");

@@ -20,20 +20,23 @@ const SpotifyGetPlaylists = () => {
                 if (storedToken) {
                     setToken(storedToken);
                 } else {
-                    const q = query(collection(db, "users"), where("uid", "==", user?.uid));
-                    const doc = await getDocs(q);
-                    const fetchedToken = doc.docs[0].data().accessToken;
-                    setToken(fetchedToken);
-                    localStorage.setItem("access_token", fetchedToken);
+                    if (user) {
+                        const q = query(collection(db, "users"), where("uid", "==", user.uid));
+                        const doc = await getDocs(q);
+                        const fetchedToken = doc.docs[0].data().accessToken;
+                        setToken(fetchedToken);
+                        localStorage.setItem("access_token", fetchedToken);
+                    }
                 }
             } catch (err) {
                 console.error(err);
                 alert("An error occurred while fetching access token");
             }
         };
-
-        fetchToken();
-    }, []);
+        if (user) {
+            fetchToken();
+        }
+    }, [user]);
 
 
     const handleGetPlaylists = () => {

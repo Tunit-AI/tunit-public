@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import '../../Pages/Profile/Profile.css';
-import { auth, db } from "../../Firebase/Config";
+import { auth, db, updateUserAndAddToCollection, refreshAccessTokenAndSave } from "../../Firebase/Config";
 import { query, collection, getDocs, where } from "firebase/firestore";
 import { useAuthState } from "react-firebase-hooks/auth";
 
@@ -17,15 +17,21 @@ const SpotifyGetPlaylists = () => {
         const fetchToken = async () => {
             try {
                 const storedToken = localStorage.getItem("access_token");
-                if (storedToken) {
-                    setToken(storedToken);
+                if (storedToken && storedToken.access_token) {
+                    setToken(storedToken.access_token);
                 } else {
-                    if (user) {
+                        if (user) {
                         const q = query(collection(db, "users"), where("uid", "==", user.uid));
                         const doc = await getDocs(q);
                         const fetchedToken = doc.docs[0].data().accessToken;
+                        const fetchedRefreshToken = doc.docs[0].data().refreshToken; // Assuming refreshToken is stored in the user document
                         setToken(fetchedToken);
+                        console.log("SGP: Refreshing access token...")
                         localStorage.setItem("access_token", fetchedToken);
+                        localStorage.setItem("refresh_token", fetchedRefreshToken);
+
+                    } else {
+                        console.log("SGP: User not found.")
                     }
                 }
             } catch (err) {
@@ -56,6 +62,12 @@ const SpotifyGetPlaylists = () => {
             // If access token has expired, reauthenticate the user.
             if (error.response.status === 401) {
                 // Redirect the user to the Spotify login page.
+                // perform the refreshAccessTokenAndSave function
+                console.log("Access token expired. Refreshing access token...");
+                const storedTokenObject = JSON.parse(localStorage.getItem("token"));
+                const refreshToken = storedTokenObject.refresh_token;
+                refreshAccessTokenAndSave(user, refreshToken);
+                
             }
         });
     };

@@ -7,9 +7,10 @@ import { auth } from "../../Firebase/Config";
 import { Axios } from 'axios';
 import * as API from './Api/apiReference';
 import AddSongChartView from '../../Components/AddSongChartView/AddSongChartView';
+import RecSearch from '../../Components/RecSearch';
 
 function AddSong() {
-
+  
     const [songID, setSongLink] = useState('');
     const tempID = '7lmeHLHBe4nmXzuXc0HDjk';
     const handleSubmit = async (e) => {
@@ -36,9 +37,9 @@ function AddSong() {
   
     
     return (
-        <>
+        <div className='addSong'>
             <Navbar />
-            <div className='addSong-container'>
+            <div className='addSong-container index'>
                 <br></br>
                 <h1>Add Song</h1>
                 <h2 className='addSong-h2'>
@@ -46,13 +47,15 @@ function AddSong() {
                     we'll find the perfect recommendations for you!
                 </h2>
                 <br></br>
-                <input className='input-addSong' placeholder='Flatbed Freestyle' />
+                {/* <input className='input-addSong' placeholder='Flatbed Freestyle' />
                 <button className='button-submit' type='submit' onClick={handleSubmit}>
                     Submit
-                </button>
+                </button> */}
+                <RecSearch />
                 {/* <AddSongChartView/> */}
+
             </div>
-        </>
+        </div>
     )
 }
 

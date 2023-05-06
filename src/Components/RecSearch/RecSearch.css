@@ -1,0 +1,95 @@
+:root {
+    --hover-bg-color: #007BFF;
+    --hover-text-color: white;
+    --background-color: white;
+    --background-color-dark: #222;
+    --text-color: black;
+    --text-color-dark: #f0f0f0;
+    --border-color: #ccc;
+    --border-color-dark: #444;
+
+}
+
+
+.rec-search-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.input-addSong {
+    margin-bottom: 8px;
+}
+
+.search-results {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    max-height: 250px;
+    overflow-y: auto;
+    background-color: var(--background-color);
+    border: 1px solid var(--border-color);
+    border-radius: 7px;
+    padding: 4px;
+}
+
+.search-results ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.search-results li {
+    padding: 4px 8px;
+    cursor: pointer;
+    color: var(--text-color);
+    border-radius: 7px;
+    margin-bottom: 8px;
+    position: relative; 
+
+}
+.search-results li::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -5px; 
+    border-bottom: 1px solid black; /* Add thin separator */
+}
+
+
+.search-results li:hover {
+    background-color: var(--hover-bg-color);
+    color: var(--hover-text-color);
+}
+
+
+@media (prefers-color-scheme: dark) {
+   
+    .search-results {
+        background-color: var(--background-color-dark);
+        border: 1px solid var(--border-color-dark);
+    }
+    .search-results li {
+        padding: 4px 8x;
+        cursor: pointer;
+        color:  #f0f0f0;
+        border-radius: 7px;   
+
+    }
+    .search-results li::after {
+        border-bottom: 0.1px solid #ccc; /* Add thin separator for dark mode */
+    }
+
+    
+}
+
+.search-results li:last-child {
+    margin-bottom: 0;
+}
+
+.search-results li:last-child::after {
+    display: none; /* Remove separator for the last item */
+}

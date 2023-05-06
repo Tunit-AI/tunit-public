@@ -6,7 +6,7 @@ Todo.md
 ### High Priority
 - [ ] create music player view
     - [X]  requires Dev acc (on the way!)
-- [ ] fix "login to spotify"
+- [ ] fix "login to spotify" text on profile page
 
 ### Lower Priority
 - [ ] add different view size settings for mobile site

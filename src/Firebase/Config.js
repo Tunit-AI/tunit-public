@@ -143,15 +143,20 @@ async function refreshAccessTokenAndSave(user, refreshToken) {
   const clientId = "db991fb76b5e4a74a8dbdaa111fc0520";
   const url = "https://accounts.spotify.com/api/token";
   const params = new URLSearchParams();
+  const clientSecret = "b021b9d7b3ba441db90b34d1d80dc7f1"; 
+
 
   params.append("grant_type", "refresh_token");
   params.append("refresh_token", refreshToken);
-  params.append("client_id", clientId);
+//   params.append("client_id", clientId);
+
+  const base64ClientData = btoa(`${clientId}:${clientSecret}`);
 
   const response = await fetch(url, {
     method: "POST",
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
+      "Authorization": `Basic ${base64ClientData}`, 
     },
     body: params.toString(),
   });

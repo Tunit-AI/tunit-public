@@ -7,6 +7,8 @@ Todo.md
 - [ ] create music player view
     - [X]  requires Dev acc (on the way!)
 - [ ] fix "login to spotify" text on profile page
+- [ ] handle firebase login errors
+- [ ] remove console log's
 
 ### Lower Priority
 - [ ] add different view size settings for mobile site

@@ -72,7 +72,7 @@ const SpotifyAuth = () => {
                     setAccessToken(accessToken);
                     setRefreshToken(refreshToken);
         
-                    await updateUserAndAddToCollection(user, accessToken, refreshToken);
+                    await updateUserAndAddToCollection("Spotify", user, accessToken, refreshToken);
                 })
                 .catch(err => console.error(err));
         }

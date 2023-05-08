@@ -106,39 +106,47 @@ const sendPasswordReset = async (email) => {
 // Sign Out
 const logout = () => {
     signOut(auth);
-  };
+};
   
-async function updateUserAndAddToCollection(user, accessToken, refreshToken) {
-  // Check if the input values are valid
-  if (!user || !user.uid || !accessToken || !refreshToken) {
-    console.log('Invalid input values.');
-    return;
+// This function updates the user's { service } access token and refresh token in the Firestore
+async function updateUserAndAddToCollection(service, user, accessToken, refreshToken = null) {
+    // Check if the input values are valid
+    if (!service || !user || !user.uid || !accessToken) {
+      console.log('Invalid input values.');
+      return;
+    }
+  
+    const usersCollection = collection(db, 'users');
+    const q = query(usersCollection, where("uid", "==", user.uid));
+    const querySnapshot = await getDocs(q);
+  
+    if (!querySnapshot.empty) {
+      // Get the document ID of the first document in the query result
+      const userDocId = querySnapshot.docs[0].id;
+  
+      // Get a reference to the user document
+      const userDocRef = doc(db, `users/${userDocId}`);
+  
+      if (service === "Spotify") {
+        // Update user data for Spotify
+        await setDoc(userDocRef, {
+            accessToken: accessToken,
+            refreshToken: refreshToken
+        }, { merge: true });
+      } else if (service === "AppleMusic") {
+        // Update user data for Apple Music
+        await setDoc(userDocRef, {
+          appleMusicToken: accessToken
+        }, { merge: true });
+      } else {
+        console.log('UUAATC: Unsupported service.');
+      }
+    } else {
+      console.log('UUAATC: User not found.');
+    }
   }
-  // Firestore references
-  // const userDocRef = doc(db, `users/${documentId}`);
-
-  const usersCollection = collection(db, 'users');
-  const q = query(usersCollection, where("uid", "==", user.uid));
-  const querySnapshot = await getDocs(q);
-
-  if (!querySnapshot.empty) {
-    // Get the document ID of the first document in the query result
-    const userDocId = querySnapshot.docs[0].id;
-
-    // Get a reference to the user document
-    const userDocRef = doc(db, `users/${userDocId}`);
-
-    // Update user data
-    await setDoc(userDocRef, {
-      accessToken: accessToken,
-      refreshToken: refreshToken
-    }, { merge: true });
-  } else {
-    console.log('UUAATC: User not found.');
-  }
-}
-
-// This function refreshes the access token using the user's stored refresh token
+  
+// This function refreshes the { SPOTIFY } access token using the user's stored refresh token
 async function refreshAccessTokenAndSave(user, refreshToken) {
   const clientId = "db991fb76b5e4a74a8dbdaa111fc0520";
   const url = "https://accounts.spotify.com/api/token";
@@ -189,6 +197,8 @@ async function refreshAccessTokenAndSave(user, refreshToken) {
     throw new Error("Failed to refresh access token");
   }
 }
+
+  
 
 
   

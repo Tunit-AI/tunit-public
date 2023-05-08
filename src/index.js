@@ -5,14 +5,17 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import { SpotifyProvider } from './Components/Spotify/SpotifyContext';
+import { AppleMusicProvider } from './Components/AppleMusic/AppleMusicContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <React.StrictMode>
         <SpotifyProvider>
-            <BrowserRouter basename="/">
-                <App />
-            </BrowserRouter>
+            <AppleMusicProvider>
+                <BrowserRouter basename="/">
+                    <App />
+                </BrowserRouter>
+            </AppleMusicProvider>
         </SpotifyProvider>
     </React.StrictMode>
 );

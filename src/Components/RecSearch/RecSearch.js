@@ -15,6 +15,7 @@ function RecSearch() {
     const [minimizeInput, setMinimizeInput] = useState(false);
     
     const loadData = async () => {
+        // change to parse github binary instead
         Papa.parse("/RecSearch.csv", {
             header: true,
             download: true,

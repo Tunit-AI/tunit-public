@@ -6,7 +6,7 @@ export const MenuData = [
         icon: 'fa-solid fa-house-chimney'
     },
     {
-        title: 'Add Song',
+        title: 'Recommendations',
         path: '/addSong',
         cName: 'nav-links',
         icon: 'fa-solid fa-square-plus'

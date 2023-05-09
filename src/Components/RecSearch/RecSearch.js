@@ -15,6 +15,8 @@ function RecSearch() {
     const [minimizeInput, setMinimizeInput] = useState(false);
     
     // http://35.235.122.79:3000/search?q=frank
+    // fetch a url with a query parameter
+
     const loadData = async () => {
         // change to parse github binary instead
         Papa.parse("/RecSearch.csv", {

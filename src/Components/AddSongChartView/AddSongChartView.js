@@ -1,7 +1,8 @@
 import React from 'react';
 // import css styles for album (implement from fuzz.css classes)
 import './AddSongChartView.css';
-  
+import AddToLibrary from '../Spotify/AddToLibrary';
+
 const AddSongChartView = ({ recommendations }) => {
     // const localStorageItems = localStorage.getItem("recItem");
     // const itemsArray = JSON.parse(localStorageItems);
@@ -28,7 +29,8 @@ const AddSongChartView = ({ recommendations }) => {
                             </div>
                             <div className="card-rate-functionsASCV">
                             <i className="fa-solid fa-circle-play fa-2xl quick-actionsASCV"></i>
-                            <i className="fa-solid fa-circle-plus fa-2xl quick-actionsASCV"></i>
+                            {/* <i className="fa-solid fa-circle-plus fa-2xl quick-actionsASCV"></i> */}
+                            <AddToLibrary trackId={item.id} />
                             <i className="fa-solid fa-heart fa-2xl quick-actionsASCV"></i>
                             </div>
                         </div>

@@ -6,7 +6,8 @@ import { useSpotify } from './SpotifyContext';
 
 const CLIENT_ID = 'db991fb76b5e4a74a8dbdaa111fc0520';
 const CLIENT_SECRET = 'b021b9d7b3ba441db90b34d1d80dc7f1';
-const REDIRECT_URI = 'http://localhost:3000/profile';
+// const REDIRECT_URI = 'http://localhost:3000/profile';
+const REDIRECT_URI = 'https://tunit.cloud/profile';
 
 const SpotifyAuth = () => {
     const { accessToken, setAccessToken, refreshToken, setRefreshToken } = useSpotify();

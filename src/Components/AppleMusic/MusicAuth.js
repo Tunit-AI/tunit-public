@@ -1,9 +1,15 @@
 import React, { useEffect } from "react";
 import MusicKit from "./MusicKit";
 import * as TOKENS from "./dev/AM_tokens";
+import { updateUserAndAddToCollection, auth } from "../../Firebase/Config";
+import { useAppleMusic } from "./AppleMusicContext";
 
+const user = auth.currentUser;
 
 function MusicAuth() {
+
+    const { AppleMusicToken, setAppleMusicToken } = useAppleMusic();
+
     useEffect(() => {
       const onMusicKitLoaded = () => {
         // MusicKit global is now defined
@@ -19,10 +25,25 @@ function MusicAuth() {
         const loginBtn = document.getElementById('AM-login-btn');
         
         loginBtn.addEventListener('click', () => {
-          music.authorize().then(function(token) {
-            // do something with token here
-            window.location.href += "?music-user-token=" + encodeURIComponent(token);
-          }).catch(e => {
+          music
+            .authorize()
+            .then(function(token) {
+
+                // Store the token in localStorage
+                localStorage.setItem("AppleMusicToken", token);
+
+                window.location.href += "?music-user-token=" + encodeURIComponent(token);
+                return token;
+            })
+            .then(async () => {
+                // save to firebase
+                const AppleMusicToken = localStorage.getItem("AppleMusicToken");
+                setAppleMusicToken(AppleMusicToken);
+                await updateUserAndAddToCollection("AppleMusic", user, AppleMusicToken);
+                console.log("Apple Music token saved to Firebase.")
+            })
+
+          .catch(e => {
             console.log('Error: ' + e);
           });
         });

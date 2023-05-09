@@ -4,17 +4,11 @@ Todo.md
 <summary><h2 style="display: inline-block;">Priority Feautures</h2></summary>
 
 ### High Priority
-- [X] add navbar class
-- [X] add rating button next to play/add button
-- [ ] add slideover settings/account page
 - [ ] create music player view
     - [X]  requires Dev acc (on the way!)
-- [ ] sign in page
-    - [ ] implement db
-<!-- - [ ] update MusicView, make it have header props, and pass them into fxn:
-    - [ ] function MusicView(props)
-        <h1 or h2> props.header </h1 or h2> -->
-- [ ] need to update routing and fix responsive media queries on welcome page / app.js
+- [ ] fix "login to spotify" text on profile page
+- [ ] handle firebase login errors
+- [ ] remove console log's
 
 ### Lower Priority
 - [ ] add different view size settings for mobile site

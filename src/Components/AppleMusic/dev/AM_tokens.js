@@ -15,4 +15,4 @@ export const JWT_loc = "./dev/token.jwt";
 export const NAME = "Tunit";
 
 // app build
-export const BUILD = "0.1.0";
+export const BUILD = "0.2.0";

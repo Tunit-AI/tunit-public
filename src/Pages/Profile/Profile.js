@@ -61,7 +61,7 @@ function Profile () {
             </div>
             <div className='Actions'>
                 <button className='button-general' onClick={logout}> Logout </button>
-                {localStorageToken ? <h3 className='h3-loggedin'>Logged in with Spotify</h3> : <SpotifyAuth />}
+                <SpotifyAuth />
                 <AppleMusic />
                 
               <div className='dev-actions'>

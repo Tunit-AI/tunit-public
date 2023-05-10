@@ -41,13 +41,13 @@ function AddSong() {
         <div className='addSong'>
             <Navbar />
             <div className='addSong-container index'>
-                <br></br>
+                {/* <br></br>
                 <h1>Add Song</h1>
                 <h2 className='addSong-h2'>
                     Type and select the name of your favorite song below and
                     we'll find the perfect recommendations for you!
                 </h2>
-                <br></br>
+                <br></br> */}
                 <RecSearch />
             </div>
         </div>

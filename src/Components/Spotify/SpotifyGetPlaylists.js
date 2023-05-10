@@ -65,7 +65,8 @@ const SpotifyGetPlaylists = () => {
                 // perform the refreshAccessTokenAndSave function
                 console.log("Access token expired. Refreshing access token...");
                 const storedTokenObject = JSON.parse(localStorage.getItem("token"));
-                const refreshToken = storedTokenObject.refresh_token;
+                // Retrieving refresh_token
+                const refreshToken = localStorage.getItem("refresh_token");
                 refreshAccessTokenAndSave(user, refreshToken);
                 
             }

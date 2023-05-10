@@ -71,9 +71,9 @@
     /* overflow: hidden;
     text-overflow: ellipsis;
     max-height: 40px; */
-    display: -webkit-box;
+    /* display: -webkit-box; // these 3 lines give errors on non safari browser.
     -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
+    -webkit-box-orient: vertical; */
 
 }
 

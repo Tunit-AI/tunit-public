@@ -29,7 +29,7 @@ const SpotifyAuth = () => {
     }
 
     const state = generateRandomString(16);
-    const scope = 'user-read-private user-read-email user-library-modify';
+    const scope = 'user-read-private user-read-email user-library-modify user-modify-playback-state streaming';
     const url = 'https://accounts.spotify.com/authorize?' +
       querystring.stringify({
         response_type: 'code',

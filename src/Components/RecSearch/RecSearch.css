@@ -18,7 +18,15 @@
     z-index: 1;
 }
 
-
+.help-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 1; /* Ensure that the button is on top of other elements */
+  }  
 .rec-search-container {
     display: flex;
     flex-direction: column;
@@ -55,6 +63,11 @@
 
 .input-addSong {
     margin-top: 9px;
+}
+.recsearch-div {
+    justify-content: center;
+    align-items: center;
+    display: flex;
 }
 
 
@@ -146,10 +159,28 @@
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.3s;
-  }
+}
   
   .overlay.visible {
     opacity: 1;
     z-index: 0;
+}
+  .custom-loader {
+    width:12px;
+    height:12px;
+    background: #766DF4;
+    border-radius: 50%;
+    box-shadow: 20px 0 #766DF422,-20px 0 #766DF4;
+    animation:d5 1s infinite linear alternate;
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+  }
+  @keyframes d5 {
+      0% {box-shadow: 20px 0 #766DF4,-20px 0 #766DF422;background: #766DF4}
+      33%{box-shadow: 20px 0 #766DF4,-20px 0 #766DF422;background: #766DF422}
+      66%{box-shadow: 20px 0 #766DF422,-20px 0 #766DF4;background: #766DF422}
   }
   

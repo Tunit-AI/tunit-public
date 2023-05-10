@@ -13,7 +13,8 @@ function RecSearch() {
     const [recommendations, setRecommendations] = useState([]); // [ {name: "song name", artists: "artist name", album: "album name"}, ...
     const [recResults, setRecResults] = useState(false);
     const [minimizeInput, setMinimizeInput] = useState(false);
-    
+    const [inputClicked, setInputClicked] = useState(false); // new state variable to keep track of whether the input box is clicked or not
+
     // http://35.235.122.79:3000/search?q=frank
     // fetch a url with a query parameter
 
@@ -47,7 +48,7 @@ function RecSearch() {
     useEffect(() => {
         const timeoutId = setTimeout(() => {
             setApiQuery(query);
-        }, 500);
+        }, 1000);
         return () => clearTimeout(timeoutId);
     }, [query]);
 
@@ -57,12 +58,19 @@ function RecSearch() {
     };
 
     const expandInput = () => {
+        if (!inputClicked) {
+            setInputClicked(true);
+        }
         setMinimizeInput(false);
+    
     };
 
     const fetchRecommendations = async (songId) => {
         setIsLoading(true);
         setShowResults(false);
+        if (!inputClicked) {
+            setInputClicked(true);
+        }
         setMinimizeInput(true);
 
         try {
@@ -85,14 +93,14 @@ function RecSearch() {
 
     return (
         <>
-            <div>
-                <h1>Add Song</h1>
-                <h2 className='addSong-h2'>
-                    Type and select the name of your favorite song below and
-                    we'll find the perfect recommendations for you!
+            {inputClicked ? null : (
+                <div>
+                <h1 className='recsearch-div'>Add Song</h1>
+                <h2 className="addSong-h2">
+                    Type and select the name of your favorite song below and we'll find the perfect recommendations for you!
                 </h2>
-
-            </div>
+                </div>
+            )}
             <div className="rec-search-container" style={searchContainerStyle}>
                 <input 
                     className={`input-addSong ${minimizeInput ? "minimized" : ""}`}
@@ -122,13 +130,19 @@ function RecSearch() {
                 </div>
             </div>
             <div className="recommendations-container">
-                {isLoading && <div>Loading recommendations...</div>}
+                {isLoading && <div className='custom-loader'></div>}
                 {recResults && (
                     <AddSongChartView
                         recommendations={recommendations}                        
                     />
                 )}
             </div>
+            <div className="help-button" onClick={() => {
+                alert('FAQ\n\nA Spotify Premium Account is required to play music.\n\nIf you have issues getting a song to play, ensure Spotify is open on any of your devices, and then try playing a song from this page again.\n\nIf you encounter any errors on this page, reauthenticate your spotify account on the profile page, and then try again here.\n\nIf you still encounter errors, please contact us at help@tunit.cloud for further assistance.')}
+            }>
+            <i className="fa-solid fa-circle-question fa-2xl quick-actionsASCV"></i>
+            </div>
+
         </>
     );
 }

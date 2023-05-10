@@ -19,6 +19,12 @@ function Profile () {
   
     const [user, loading, error] = useAuthState(auth);
     const [name, setName] = useState("");
+    const [localStorageToken, setLocalStorageToken] = useState(null);
+
+    useEffect(() => {
+        setLocalStorageToken(localStorage.getItem('access_token'));
+    }, []);
+
     const navigate = useNavigate();
     const fetchUserName = async () => {
         try {
@@ -55,7 +61,7 @@ function Profile () {
             </div>
             <div className='Actions'>
                 <button className='button-general' onClick={logout}> Logout </button>
-                <SpotifyAuth />
+                {localStorageToken ? <h3 className='h3-loggedin'>Logged in with Spotify</h3> : <SpotifyAuth />}
                 <AppleMusic />
                 
               <div className='dev-actions'>

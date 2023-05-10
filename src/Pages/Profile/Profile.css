@@ -99,9 +99,9 @@ a {
     opacity: 0;
     box-shadow: none
 }
-.dev-actions:hover {
+/* .dev-actions:hover {
     opacity: 1;
-}
+} */
 
 .h3-loggedin {
     margin-bottom: 40px;

@@ -95,7 +95,7 @@ function RecSearch() {
         <>
             {inputClicked ? null : (
                 <div>
-                <h1 className='recsearch-div'>Add Song</h1>
+                <h1 className='recsearch-div'>Recommendations</h1>
                 <h2 className="addSong-h2">
                     Type and select the name of your favorite song below and we'll find the perfect recommendations for you!
                 </h2>

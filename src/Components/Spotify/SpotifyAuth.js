@@ -105,7 +105,7 @@ const SpotifyAuth = () => {
     <div>
         {accessToken
             ? <p>Logged in successfully.</p>
-            : <button onClick={handleLogin}>Login with Spotify</button>}
+            : <button className='button-green' onClick={handleLogin}>Login with Spotify</button>}
     </div>
   );
 };

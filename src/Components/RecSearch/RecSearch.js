@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import "./RecSearch.css";
 import Papa from 'papaparse';
 import AddSongChartView from '../AddSongChartView/AddSongChartView';
+import Status from '../../Components/Status';
 
 function RecSearch() {
     const [query, setQuery] = useState("");
@@ -141,7 +142,12 @@ function RecSearch() {
                 alert('FAQ\n\nA Spotify Premium Account is required to play music.\n\nIf you have issues getting a song to play, ensure Spotify is open on any of your devices, and then try playing a song from this page again.\n\nIf you encounter any errors on this page, reauthenticate your spotify account on the profile page, and then try again here.\n\nIf you still encounter errors, please contact us at help@tunit.cloud for further assistance.')}
             }>
             <i className="fa-solid fa-circle-question fa-2xl quick-actionsASCV"></i>
+
             </div>
+            <div className="help-button">   
+                <Status status='offline' />
+            </div>
+
 
         </>
     );

@@ -1,0 +1,156 @@
+:root {
+    --black: rgba(43,45,66,1.0);
+    --oled: #000000;
+    --red: rgba(230, 66, 73, 1.0);
+    --red2: rgba(207, 48, 57, 1.0);
+    --white: #fff;
+}
+
+
+.titleBB {
+    padding-left: 30px;
+    margin-top: 70px;
+}
+.container {
+    max-width: 1400px;
+    padding: 0 15px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.cards {
+    display: flex;
+    padding: 5px 0px;
+    list-style: none;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    position: relative;
+}
+
+.card:first-child {
+    margin-left: 25px;
+}
+.card:last-child {
+    margin-right: 25px;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 100%;
+    padding: 10px;
+    padding-left: 10px;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 15%);
+    scroll-snap-align: none;
+    transition: all 0.2s;
+    position: relative;
+    margin-bottom: 15px
+}
+.card:not(:last-child) {
+    margin-right: 10px;
+}
+.card-image {
+    width: 70%;
+    height: 100%;
+    margin: auto;
+    margin-left: 10px;
+    border-radius: 15px;
+    position: relative;
+}
+.card-item, .card-item-subtitle {
+  margin-left: 10px;
+}
+
+i, .card-icon {
+    padding-top: 15px;
+    margin-top: 15px;
+}
+
+i:hover {
+  color:var(--red);
+  transform: scale(1.2);
+}
+
+.quick-actions {
+  margin-left: 20px;
+}
+
+
+.card:hover {
+    background: var(--red2);
+    color: white;
+}
+.card:hover i,
+.i:hover {
+  color: var(--white);
+}
+.cards::-webkit-scrollbar {
+    display: none;
+}
+@media (min-width: 500px) {
+    .card {
+      flex-basis: calc(50% - 10px);
+      /* flex-direction: row; */
+
+    }
+  
+    .card:not(:last-child) {
+      margin-right: 20px;
+    }
+  }
+  
+  @media (min-width: 700px) {
+    .card {
+      flex-basis: calc(calc(100% / 3) - 20px);
+    }
+  
+    .card:not(:last-child) {
+      margin-right: 30px;
+    }
+  }
+  
+  @media (min-width: 1100px) {
+    .card {
+      flex-basis: calc(25% - 30px);
+
+    }
+  
+    .card:not(:last-child) {
+      margin-right: 40px;
+    }
+  
+  }
+
+  @media (prefers-color-scheme: dark) {
+    body {
+      background: var(--oled);
+      color: var(--white);
+    }
+  
+    .card {
+      background: var(--oled);
+      color: white;
+    }
+    .card-image {
+      box-shadow: 0px 0px 2px var(--white);
+    
+    }
+
+  
+    .card:hover {
+      background: var(--red2);
+    }
+  
+    .card:hover .card-link {
+      background: var(--black);
+    }
+    .active-ss {
+      color: var(--white);
+    }
+    .card {
+      box-shadow: 0 5px 15px var(--red2);
+    }
+  
+  }

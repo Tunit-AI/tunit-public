@@ -1,0 +1,171 @@
+:root {
+    --black: rgba(43,45,66,1.0);
+    --oled: #000000;
+    --red: rgba(230, 66, 73, 1.0);
+    --red2: rgba(207, 48, 57, 1.0);
+    --white: #fff;
+}
+
+
+.titleASCV {
+    padding-left: 30px;
+    margin-top: 70px;
+}
+.containerASCV {
+    max-width: 90vw;
+    padding: 0 15px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.cardsASCV {
+    display: flex;
+    padding: 5px 0px;
+    list-style: none;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    position: relative;
+}
+
+.cardASCV:first-child {
+    margin-left: 25px;
+}
+.cardASCV:last-child {
+    margin-right: 25px;
+}
+
+.cardASCV {
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 100%;
+    padding: 10px;
+    padding-left: 10px;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 15%);
+    scroll-snap-align: none;
+    transition: all 0.2s;
+    position: relative;
+    margin-bottom: 15px;
+    min-height: 160px;
+}
+.cardASCV:not(:last-child) {
+    margin-right: 10px;
+}
+.card-imageASCV {
+    width: 300px;
+    height: 300px;
+    margin: auto;
+    margin-left: 10px;
+    border-radius: 15px;
+    position: relative;
+}
+.card-itemASCV, .card-item-subtitleASCV {
+  margin-left: 10px;
+}
+.card-itemASCV {
+    /* max-height: 30px; */
+    /* overflow: hidden; */
+    /* overflow-x: auto; */
+    white-space: nowrap;  
+    /* overflow: hidden;
+    text-overflow: ellipsis;
+    max-height: 40px; */
+    /* display: -webkit-box; // these 3 lines give errors on non safari browser.
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical; */
+
+}
+
+i, .card-iconASCV {
+    padding-top: 15px;
+    margin-top: 15px;
+}
+
+i:hover {
+  color:var(--red);
+  transform: scale(1.2);
+}
+
+.quick-actionsASCV {
+  margin-left: 20px;
+  margin-bottom: 50px;
+}
+
+
+.cardASCV:hover {
+    background: var(--red2);
+    color: white;
+}
+.cardASCV:hover i,
+.i:hover {
+  color: var(--white);
+}
+.cardsASCV::-webkit-scrollbar {
+    display: none;
+}
+@media (min-width: 500px) {
+    .cardASCV {
+      flex-basis: calc(50% - 10px);
+      /* flex-direction: row; */
+
+    }
+  
+    .cardASCV:not(:last-child) {
+      margin-right: 20px;
+    }
+  }
+  
+  @media (min-width: 700px) {
+    .cardASCV {
+      flex-basis: calc(calc(100% / 3) - 20px);
+    }
+  
+    .cardASCV:not(:last-child) {
+      margin-right: 30px;
+    }
+  }
+  
+  @media (min-width: 1100px) {
+    .cardASCV {
+      flex-basis: calc(25% - 30px);
+
+    }
+  
+    .cardASCV:not(:last-child) {
+      margin-right: 40px;
+    }
+  
+  }
+
+  @media (prefers-color-scheme: dark) {
+    body {
+      background: var(--oled);
+      color: var(--white);
+    }
+  
+    .cardASCV {
+      background: var(--oled);
+      color: white;
+    }
+    .card-imageASCV {
+      box-shadow: 0px 0px 2px var(--white);
+    
+    }
+
+  
+    .cardASCV:hover {
+      background: var(--red2);
+    }
+  
+    .cardASCV:hover .card-linkASCV {
+      background: var(--black);
+    }
+    .active-ss {
+      color: var(--white);
+    }
+    .cardASCV {
+      box-shadow: 0 5px 15px var(--red2);
+    }
+  
+  }

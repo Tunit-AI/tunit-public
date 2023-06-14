@@ -1,0 +1,109 @@
+
+
+.profile-margin {
+    margin-left: 20px;
+    
+}
+
+
+
+a {
+    text-decoration: none;
+}
+
+.Actions {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.Actions button {
+    opacity: 0.9;
+    border: none;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    color: white;
+    width: auto;
+    margin-bottom: 10px;
+    font-size: large;
+    padding: 10px 20px;
+    margin-bottom: 30px;
+}
+
+.Actions button:hover {
+    opacity: 1;
+}
+.button-general {
+    background-color: blueviolet;
+
+}
+
+.button-green {
+    background-color: green;
+    opacity: 0;
+
+}
+.button-red {
+    background-color: red;
+}
+.button-black {
+    background-color: black;
+}
+
+
+.button-green:hover {
+    /* background-color: black;
+    backdrop-filter: blur(20px); */
+    /* border-radius: 4px; */
+    transition: all 0.2s ease-in-out
+}
+
+.button-submit {
+    width: 100px;
+
+}
+
+.input-addSong {
+    border-radius: 7px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
+}
+
+.profile-content {
+    display: flex;
+    flex-direction: column;
+    margin: 10vh 10vh 10vh 10vh;
+}
+
+.profile-content p {
+    font-size: 1.17em;
+}
+
+.profile-reset-password a {
+    color: red;
+}
+
+.profile-reset-password {
+    margin-bottom: 20px;
+    display: flex;
+}
+
+.profile-margin button:hover {
+    opacity: 1;
+}
+
+.profile-dev {
+    margin-top: 100px;
+}
+
+.dev-actions {
+    opacity: 0;
+    box-shadow: none
+}
+/* .dev-actions:hover {
+    opacity: 1;
+} */
+
+.h3-loggedin {
+    margin-bottom: 40px;
+}
+
